@@ -2,6 +2,7 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
+bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/" , (err,files)=>{
 
@@ -11,8 +12,13 @@ fs.readdir("./commands/" , (err,files)=>{
     console.log("Couldnt find Commands!");
     return;
   }
+  jsfiles.forEach((f,i)=>{
+    let props = require(`./commands/${f}`);
+    console.log(`${f} Loaded!`);
+    bot.commands.set(prop.help.name , props);
+  });
 
-})
+});
 
 bot.on("ready" , async () => {
   console.log(`${bot.user.username} is online!`);
