@@ -43,7 +43,8 @@ bot.on("message" , async message=>{
   if(commandfile)commandfile.run(bot,message,args);
   
   if(message.match(/math\([^)]*\)/g)){
-    str math = message.replace(/math\(([^)])*\)/g , eval("$1"));
+    let math = message.replace(/math\(([^)])*\)/g , eval("$1"));
+    return message.channel.send(math);
   }
 
 });
