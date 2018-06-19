@@ -62,5 +62,8 @@ bot.on("message" , async message=>{
 
     return message.channel.send(rEmbed);
   }
+  else{
+    return message.channel.send("Sorry Unknown CMD!");
+  }
 });
 bot.login(botconfig.token);
