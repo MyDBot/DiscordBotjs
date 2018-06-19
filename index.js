@@ -63,6 +63,12 @@ bot.on("message" , async message=>{
     return message.channel.send(rEmbed);
   }
 
+  
+  if(cmd === `${prefix}for`){
+    var str = "";
+    for(var i = 0;i<Number(args[0]);i++){str+="&"+i;}
+    return message.channel.send(str);
+  }
 
 
 });
