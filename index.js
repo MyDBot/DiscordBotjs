@@ -63,5 +63,24 @@ bot.on("message" , async message=>{
     return message.channel.send(rEmbed);
   }
 
+
+  if(cmd === `${prefix}kick`){
+    let kuser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+
+    if(!kuser){message.channel.send("Cant Find user!");return;)
+
+    let kreason = args.join(" ").slice(22);
+
+    letkickEmbed = Discord.RichEmbed()
+    .setDescription("~ Kick ~")
+    .setColor("#e56b00")
+    .addField("Kicked User:" , `${kuser} with ID ${kuser.id}`)
+    .addField("Kicked BY:" , `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked in:" , message.channel)
+    .addField("Time:" , message.createdAt)
+    .addField("Reason:" , kreason);
+    return message.channel.send(letkickEmbed);
+
+  }
 });
 bot.login(botconfig.token);
