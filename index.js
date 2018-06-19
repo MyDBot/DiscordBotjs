@@ -84,3 +84,8 @@ bot.on("message" , async message=>{
   }
 });
 bot.login(botconfig.token);
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://<your app name>.herokuapp.com");
+}, 300000);
