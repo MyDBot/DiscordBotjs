@@ -43,18 +43,7 @@ bot.on("message" , async message=>{
   if(commandfile)commandfile.run(bot,message,args);
 
 
-  if(cmd === `${prefix}botinfo`){
-    let bicon = bot.user.displayAvatarURL;
-
-    let botembed = new Discord.RichEmbed()
-    .setDescription("Bot Info")
-    .setColor("#15f153")
-    .setThumbnail(bicon)
-    .addField("Bot Name: " , bot.user.username)
-    .addField("Created On: " , bot.user.createdAt);
-
-    return message.channel.send(botembed);
-  }
+  
 
 
 
@@ -74,20 +63,6 @@ bot.on("message" , async message=>{
 
 
 
-  if(cmd === `${prefix}report`){
-    let ruser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!ruser) return message.channel.send("Couldn`t Find User!");
-    let reason = args.join().slice(22);
-
-    let rEmbed = new Discord.RichEmbed()
-    .setDescription("Report")
-    .setColor("#00ff61")
-    .addField("Reported User: " , `${ruser}`)
-    .addField("Reason: " , `${reason}`)
-    .addField("Status: ","sent!");
-
-    return message.channel.send(rEmbed);
-  }
 
   
 
