@@ -64,11 +64,7 @@ bot.on("message" , async message=>{
   }
 
   
-  if(cmd === `${prefix}for`){
-    var str = "";
-    for(var i = 0;i<parseInt(args[0]);i++){str+="&"+i;}
-    return message.channel.send(str);
-  }
+
 
 
 });
