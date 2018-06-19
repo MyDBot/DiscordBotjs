@@ -13,9 +13,9 @@ fs.readdir("./commands/" , (err,files)=>{
     return;
   }
   jsfile.forEach((f,i)=>{
-    let props = require(`./commands/${f}`);
+    //let props = require(`./commands/${f}`);
     console.log(`${f} Loaded!`);
-    bot.commands.set(prop.help.name , props);
+    //bot.commands.set(prop.help.name , props);
   });
 
 });
