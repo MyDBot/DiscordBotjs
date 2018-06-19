@@ -12,7 +12,7 @@ fs.readdir("./commands/" , (err,files)=>{
     console.log("Couldnt find Commands!");
     return;
   }
-  jsfiles.forEach((f,i)=>{
+  jsfile.forEach((f,i)=>{
     let props = require(`./commands/${f}`);
     console.log(`${f} Loaded!`);
     bot.commands.set(prop.help.name , props);
