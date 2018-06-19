@@ -1,6 +1,18 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
+const fs = require("fs");
+
+fs.readdir("./commands/" , (err,files)=>{
+
+  if(err) console.log(err);
+  let jsfile = files.filter(f=>f.split(".").pop() === "js")
+  if(jsfile.length<=0){
+    console.log("Couldnt find Commands!");
+    return;
+  }
+
+})
 
 bot.on("ready" , async () => {
   console.log(`${bot.user.username} is online!`);
