@@ -42,10 +42,15 @@ bot.on("message" , async message=>{
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile)commandfile.run(bot,message,args);
   
-  if(message.match(/math\([^)]*\)/g)){
-    let math = message.replace(/math\(([^)])*\)/g , eval("$1"));
-    return message.channel.send(math);
+  var regex = /math\{([^}]*)\}/g;
+  var m;
+  while ((m = regex.exec(message)) !== null) {
+      if (m.index === regex.lastIndex) {
+          regex.lastIndex++;
+      }
+      return message.channel.send(eval(m[1]));
   }
+
 
 });
 bot.login(botconfig.token);
