@@ -99,3 +99,13 @@ bot.login(botconfig.token);
 setInterval(function() {
     console.log("Awake!");
 }, 300000);
+
+
+var express = require("express");
+var app= express();
+var port = process.env.PORT || 8080;
+
+app.get("/" ,function(req , res){
+	res.send("welcome to F MyD Demo!");
+});
+app.listen(port);
