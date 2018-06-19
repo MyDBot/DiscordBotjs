@@ -42,32 +42,6 @@ bot.on("message" , async message=>{
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile)commandfile.run(bot,message,args);
 
-
-  
-
-
-
-  if(cmd === `${prefix}serverinfo`){
-    let sicon = message.guild.iconURL;
-    let serverembed = new Discord.RichEmbed()
-    .setDescription("Server Info")
-    .setColor("#00ffff")
-    .setThumbnail(sicon)
-    .addField("ServerName: " , message.guild.name)
-    .addField("Created On: " , message.guild.createdAt)
-    .addField("You Joind On: " , message.member.joinedAt)
-    .addField("Total Membders: " , message.guild.memberCount);
-
-    return message.channel.send(serverembed);
-  }
-
-
-
-
-  
-
-
-
 });
 bot.login(botconfig.token);
 
