@@ -67,7 +67,7 @@ bot.on("message" , async message=>{
   if(cmd === `${prefix}kick`){
     let kuser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-    if(!kuser){message.channel.send("Cant Find user!");return;)
+    if(!kuser){message.channel.send("Cant Find user!");return;}
 
     let kreason = args.join(" ").slice(22);
 
