@@ -41,6 +41,10 @@ bot.on("message" , async message=>{
   
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile)commandfile.run(bot,message,args);
+  
+  if(message.match(/math\([^)]*\)/g)){
+    str math = message.replace(/math\(([^)])*\)/g , eval("$1"));
+  }
 
 });
 bot.login(botconfig.token);
