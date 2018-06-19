@@ -70,3 +70,6 @@ bot.on("message" , async message=>{
 });
 bot.login(botconfig.token);
 
+setInterval(function() {
+    console.log("Awake!");
+}, 300000);
